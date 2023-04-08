@@ -165,7 +165,7 @@ See `ibuffer-formats' for details."
                     (t (nerd-icons-icon-for-mode major-mode
                                                  :height nerd-icons-ibuffer-icon-size)))))
     (if (or (null icon) (symbolp icon))
-        (setq icon (nerd-icons-faicon "file-o"
+        (setq icon (nerd-icons-faicon "nf-fa-file_o"
                                       :face (if nerd-icons-ibuffer-color-icon
                                                 'nerd-icons-dsilver
                                               'nerd-icons-ibuffer-icon-face)
