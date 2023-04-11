@@ -1,11 +1,11 @@
-;;; nerd-icons-ibuffer.el --- Display icons for all buffers in ibuffer        -*- lexical-binding: t; -*-
+;;; nerd-icons-ibuffer.el --- Display nerd icons in ibuffer        -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023 Vincent Zhang
 
 ;; Author: Vincent Zhang <seagle0128@gmail.com>
 ;; Homepage: https://github.com/seagle0128/nerd-icons-ibuffer
 ;; Version: 1.0.0
-;; Package-Requires: ((emacs "24.3") (nerd-icons "1.0.0"))
+;; Package-Requires: ((emacs "24.3") (nerd-icons "0.0.1"))
 ;; Keywords: convenience, icons, ibuffer
 
 ;; This file is not part of GNU Emacs.
@@ -29,7 +29,7 @@
 
 ;;; Commentary:
 
-;; Display icons for all buffers in ibuffer.
+;; Display nerd icons in ibuffer.
 ;;
 ;; Install:
 ;; From melpa, `M-x package-install RET nerd-icons-ibuffer RET`.
@@ -45,7 +45,7 @@
 (require 'nerd-icons)
 
 (defgroup nerd-icons-ibuffer nil
-  "Display icons for all buffers in ibuffer."
+  "Display nerd icons in ibuffer."
   :group 'nerd-icons
   :group 'ibuffer
   :link '(url-link :tag "Homepage" "https://github.com/seagle0128/nerd-icons-ibuffer"))
