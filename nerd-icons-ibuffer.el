@@ -101,27 +101,7 @@ It respects `nerd-icons-color-icons'."
   `((mark modified read-only ,(if (>= emacs-major-version 26) 'locked "")
           ;; Here you may adjust by replacing :right with :center or :left
           ;; According to taste, if you want the icon further from the name
-          " " ,(if nerd-icons-ibuffer-icon
-                   '(icon 2 2 :left :elide)
-                 "")
-          ,(if nerd-icons-ibuffer-icon
-               (propertize " " 'display `(space :align-to 8))
-             "")
-          (name 18 18 :left :elide)
-          " " (size-h 9 -1 :right)
-          " " (mode+ 16 16 :left :elide)
-          " " filename-and-process+)
-    (mark " " (name 16 -1) " " filename))
-  "A list of ways to display buffer lines with `nerd-icons'.
-
-See `ibuffer-formats' for details."
-  :group 'nerd-icons-ibuffer
-  :type '(repeat sexp))
-
-(defcustom nerd-icons-ibuffer-formats-simple
-  `((mark modified read-only ,(if (>= emacs-major-version 26) 'locked "")
-          ;; Here you may adjust by replacing :right with :center or :left
-          ;; According to taste, if you want the icon further from the name
+          " " (icon 2 2)
           (name 18 18 :left :elide)
           " " (size-h 9 -1 :right)
           " " (mode+ 16 16 :left :elide)
@@ -154,29 +134,33 @@ See `ibuffer-formats' for details."
 
 ;; For alignment, the size of the name field should be the width of an icon
 (define-ibuffer-column icon
-  (:name "  " :inline t)
-  (let ((icon (cond ((and (buffer-file-name) (nerd-icons-auto-mode-match?))
-                     (nerd-icons-icon-for-file (file-name-nondirectory (buffer-file-name))
-                                               :height nerd-icons-ibuffer-icon-size))
-                    ((eq major-mode 'dired-mode)
-                     (nerd-icons-icon-for-dir (buffer-name)
-                                              :height nerd-icons-ibuffer-icon-size
-                                              :face 'nerd-icons-ibuffer-dir-face))
-                    (t (nerd-icons-icon-for-mode major-mode
-                                                 :height nerd-icons-ibuffer-icon-size)))))
-    (if (or (null icon) (symbolp icon))
-        (setq icon (nerd-icons-faicon "nf-fa-file_o"
-                                      :face (if nerd-icons-ibuffer-color-icon
-                                                'nerd-icons-dsilver
-                                              'nerd-icons-ibuffer-icon-face)
-                                      :height nerd-icons-ibuffer-icon-size))
-      (let* ((props (get-text-property 0 'face icon))
-             (family (plist-get props :family))
-             (face (if nerd-icons-ibuffer-color-icon
-                       (or (plist-get props :inherit) props)
-                     'nerd-icons-ibuffer-icon-face))
-             (new-face `(:inherit ,face :family ,family)))
-        (propertize icon 'face new-face)))))
+  (:name "" :inline t)
+  (if nerd-icons-ibuffer-icon
+      (let ((icon (cond ((and (buffer-file-name) (nerd-icons-auto-mode-match?))
+                         (nerd-icons-icon-for-file (file-name-nondirectory (buffer-file-name))
+                                                   :height nerd-icons-ibuffer-icon-size))
+                        ((eq major-mode 'dired-mode)
+                         (nerd-icons-icon-for-dir (buffer-name)
+                                                  :height nerd-icons-ibuffer-icon-size
+                                                  :face 'nerd-icons-ibuffer-dir-face))
+                        (t
+                         (nerd-icons-icon-for-mode major-mode
+                                                   :height nerd-icons-ibuffer-icon-size)))))
+        (concat
+         (if (or (null icon) (symbolp icon))
+             (nerd-icons-faicon "nf-fa-file_o"
+                                :face (if nerd-icons-ibuffer-color-icon
+                                          'nerd-icons-dsilver
+                                        'nerd-icons-ibuffer-icon-face)
+                                :height nerd-icons-ibuffer-icon-size)
+           (if nerd-icons-ibuffer-color-icon
+               icon
+             (propertize icon
+                         'face `(:inherit nerd-icons-ibuffer-icon-face
+                                 :family ,(plist-get (get-text-property 0 'face icon)
+                                                     :family)))))
+         (propertize " " 'display '((space :relative-width 0.5)))))
+    ""))
 
 ;; Human readable file size for ibuffer
 (define-ibuffer-column size-h
@@ -250,7 +234,8 @@ See `ibuffer-formats' for details."
   (when (derived-mode-p 'ibuffer-mode)
     (setq-local ibuffer-formats (if nerd-icons-ibuffer-mode
                                     nerd-icons-ibuffer-formats
-                                  nerd-icons-ibuffer-old-formats))))
+                                  nerd-icons-ibuffer-old-formats))
+    (ibuffer-update nil t)))
 
 (provide 'nerd-icons-ibuffer)
 
