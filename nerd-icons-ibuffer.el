@@ -116,7 +116,7 @@ See `ibuffer-formats' for details."
 
 
 (defun nerd-icons-ibuffer--file-size-human-readable-to-bytes (file-size &optional flavor)
-  "Convert a human-readable file size string into bytes."
+  "Convert a human-readable FILE-SIZE string into bytes with FLAVOR."
   (let ((power (if (or (null flavor) (eq flavor 'iec))
 		           1024.0
 		         1000.0))
