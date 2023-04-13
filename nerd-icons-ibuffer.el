@@ -159,7 +159,7 @@ See `ibuffer-formats' for details."
                          'face `(:inherit nerd-icons-ibuffer-icon-face
                                  :family ,(plist-get (get-text-property 0 'face icon)
                                                      :family)))))
-         (propertize " " 'display '((space :relative-width 0.5)))))
+         " "))
     ""))
 
 ;; Human readable file size for ibuffer
