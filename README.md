@@ -1,6 +1,6 @@
 # nerd-icons-ibuffer
 
-[![Build Status](https://github.com/seagle0128/nerd-icons-ibuffer/workflows/CI/badge.svg?branch=master)](https://github.com/seagle0128/nerd-icons-ibuffer/actions)
+[![Build Status](https://github.com/seagle0128/nerd-icons-ibuffer/workflows/CI/badge.svg)](https://github.com/seagle0128/nerd-icons-ibuffer/actions)
 [![Release Tag](https://img.shields.io/github/tag/seagle0128/nerd-icons-ibuffer.svg?label=Release)](https://github.com/seagle0128/nerd-icons-buffer/releases)
 [![License](http://img.shields.io/:License-GPL3-blue.svg)](License)
 [![MELPA](https://melpa.org/packages/nerd-icons-ibuffer-badge.svg)](https://melpa.org/#/nerd-icons-ibuffer)
@@ -76,7 +76,7 @@ nerd-icons-ibuffer-formats
 
 ## Screenshots
 
-![nerd-icons-ibuffer](https://user-images.githubusercontent.com/140797/97093181-65867b00-167c-11eb-816c-0a96d69dcb94.png "icons with ibuffer")
+![nerd-icons-ibuffer](https://user-images.githubusercontent.com/140797/232536509-a19699fa-1c0d-49ca-831f-0a7e89dcfe40.png "icons with ibuffer")
 
 ## Donate
 
