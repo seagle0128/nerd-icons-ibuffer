@@ -1,6 +1,6 @@
 ;;; nerd-icons-ibuffer.el --- Display nerd icons in ibuffer        -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023 Vincent Zhang
+;; Copyright (C) 2025 Vincent Zhang
 
 ;; Author: Vincent Zhang <seagle0128@gmail.com>
 ;; Homepage: https://github.com/seagle0128/nerd-icons-ibuffer
