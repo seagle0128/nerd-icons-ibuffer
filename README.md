@@ -1,6 +1,6 @@
 # nerd-icons-ibuffer
 
-[![Build Status](https://github.com/seagle0128/nerd-icons-ibuffer/workflows/CI/badge.svg)](https://github.com/seagle0128/nerd-icons-ibuffer/actions)
+[![CI](https://github.com/seagle0128/nerd-icons-ibuffer/actions/workflows/ci.yml/badge.svg)](https://github.com/seagle0128/nerd-icons-ibuffer/actions/workflows/ci.yml)
 [![Release Tag](https://img.shields.io/github/tag/seagle0128/nerd-icons-ibuffer.svg?label=Release)](https://github.com/seagle0128/nerd-icons-buffer/releases)
 [![License](http://img.shields.io/:License-GPL3-blue.svg)](License)
 [![MELPA](https://melpa.org/packages/nerd-icons-ibuffer-badge.svg)](https://melpa.org/#/nerd-icons-ibuffer)
