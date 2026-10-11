@@ -137,9 +137,13 @@ See `ibuffer-formats' for details."
   (:name "" :inline t)
   (if nerd-icons-ibuffer-icon
       (let ((icon (if (eq major-mode 'dired-mode)
-                      (nerd-icons-icon-for-dir (buffer-name)
-                                               :height nerd-icons-ibuffer-icon-size
-                                               :face 'nerd-icons-ibuffer-dir-face)
+                      (nerd-icons-icon-for-dir
+                       (or (and (local-variable-p 'dired-directory)
+                                (if (stringp dired-directory)
+                                    dired-directory (car dired-directory)))
+                           default-directory)
+                       :height nerd-icons-ibuffer-icon-size
+                       :face 'nerd-icons-ibuffer-dir-face)
                     (nerd-icons-icon-for-buffer :height nerd-icons-ibuffer-icon-size))))
         (concat
          (if (or (null icon) (symbolp icon))
